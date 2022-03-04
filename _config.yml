@@ -24,9 +24,9 @@ logo-dark: "/assets/img/branding/MVM-logo-full-dark.svg"
 highlight_theme: syntax-base16.monokai.dark # select a dark theme for the code highlighter if needed
 
 # Author settings
-author: Armando Maynez # add your name
+author: 创衡控制有限公司 # add your name
 author-pic: Myself_Neon_grey.jpg
-about-author: Engineer, industry executive, research enthusiast. Avid learner with diverse interests in coding, machine learning, artificial intelligence and reinforcement learning. 17+ years of experience working in multinational corporations.
+about-author: 北京创衡控制技术有限公司专注于工业级、军品级无人系统控制技术研发，在飞行控制领域具有20年以上的技术积累。主要业务包括控制系统集成、惯性导航、差分卫星导航等，还可以根据用户需求提供定制化产品或服务。
 
 # Contact links
 email: armando.maynez@gmail.com # Add your Email address
