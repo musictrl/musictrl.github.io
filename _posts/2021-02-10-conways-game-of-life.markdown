@@ -10,75 +10,54 @@ tags: [coding, python]
 author: Armando Maynez
 github: amaynez/GameOfLife/
 ---
-<p>I&nbsp;am lately trying to take on coding again. It had always been a part of my life since my early years when I&nbsp;learned to program a Tandy Color Computer at the age of 8, the good old days.</p>
-
-<img src="./assets/img/posts/20210210/300px-TRS-80_Color_Computer_3.jpg" alt="Tandy Color Computer TRS80 III"/><small>Tandy Color Computer TRS80 III</small>
-
-<p>Having already programed in Java, C# and of course BASIC, I&nbsp;thought it would be a great idea to learn Python since I&nbsp;have great interest in data science and machine learning, and those two topics seem to have an avid community within Python coders.</p>
-
-<p>For one of my starter quick programming tasks, I&nbsp;decided to code Conway's Game of Life, a very simple cellular automata that basically plays itself.</p>
-
-<p>The game consists of a grid of n size, and within each block of the grid a cell could either be dead or alive according to these rules:</p>
-
-<ul><li>If a cell has less than 2 neighbors, meaning contiguous alive cells, the cell will die of loneliness</li><li>If a cell has more than 3 neighbors, it will die of overpopulation</li><li>If an empty block has exactly 3 contiguous alive neighbors, a new cell will be born in that spot</li><li>If an alive cell has 2 or 3 alive neighbors, it continues to live</li></ul>
-
-<img src="./assets/img/posts/20210210/GameOfLife.gif" alt="Conway's rules for the Game of Life"/><small>Conway's rules for the Game of Life</small>
-
-<p>To make it more of a challenge I&nbsp;also decided to implement an <em>"sparse" </em>method of recording the game board, this means that instead of the typical 2d array representing the whole board, I&nbsp;will only record the cells which are alive. Saving a lot of memory space and processing time, while adding some spice to the challenge.</p>
-
-<p>The trickiest part was figuring out how to calculate which empty blocks had exactly 3 alive neighbors so that a new cell will spring to life there, this is trivial in the case of recording the whole grid, because we just iterate all over the board and find the alive neighbors of ALL&nbsp;the blocks in the grid, but in the case of only keeping the alive cells proved quite a challenge.</p>
-
-<p>In the end the algorithm ended up as follows:</p>
-
-<ol><li>Iterate through all the alive cells and get all of their neighbors</li></ol>
-
-```python
-def get_neighbors(self, cell):
-    neighbors = []
-
-    for x in range(-1, 2, 1):
-        for y in range(-1, 2, 1):
-            if not (x == 0 and y == 0):
-                if (0 &lt;= (cell[0] + x) &lt;= self.size_x) and (0 &lt;= (cell[1] + y) &lt;= self.size_y):
-                    neighbors.append((cell[0] + x, cell[1] + y))
-    return neighbors
-```
-
-<ol start="2"><li>Mark all the neighboring blocks as having +1 neighbor each time a particular cell is encountered. This way, for each neighboring alive cell the counter of the particular block will increase, and in the end it will contain the total number of live cells which are contiguous to it.</li></ol>
-
-```python
-def next_state(self):
-    alive_neighbors = {}
-
-    for cell in self.alive_cells:
-        if cell not in alive_neighbors:
-            alive_neighbors[cell] = 0
-
-        neighbors = self.get_neighbors(cell)
-
-        for neighbor in neighbors:
-            if neighbor not in alive_neighbors:
-                alive_neighbors[neighbor] = 1
-            else:
-                alive_neighbors[neighbor] += 1
-```
-
-<p>The trick was using a dictionary to keep the record of the blocks that have alive neighbors and the cells who are alive in the current state but have zero alive neighbors (thus will die).</p>
-
-<p>With the dictionary it became easy just to add cells and increase their neighbor counter each time it was encountered as a neighbor of an alive cell.</p>
-
-<p>Having the dictionary now filled with all the cells that have alive neighbors and how many they have, it was just a matter of applying the rules of the game:</p>
 
 
-```python
-for cell in alive_neighbors:
-    if alive_neighbors[cell] &lt; 2 or alive_neighbors[cell] > 3:
-        self.alive_cells.discard(cell)
-    
-    elif alive_neighbors[cell] == 3:
-        self.alive_cells.add(cell)
-```
+冯如三号”无人机创FAI世界纪录，校友企业创衡飞控全力支撑
+2019-10-13  昵称m5Gu5
+10月3日，北京航空航天大学冯如书院、北京学院大一、大二本科生自主研发、生产、制造的“冯如三号”无人机在国家体育总局安阳航空运动学校上空300米高度成功完成30小时6分42秒盘旋飞行，创下25～100公斤级油动无人机续航时间的国际航空联合会（下称国际航联、FAI）世界纪录，该机全程采用自主模式飞行及起降。来自国际航联的观察员WONG,TAK KAY KEITH先生现场签字确认，该续航时间及飞行活动有效，该纪录获国际航联的正式批准证书。据悉，“冯如三号”于北京时间2019年10月2日8时06分24秒起飞，持续飞行30小时6分42秒后于10月3日降落，首次试飞成功是8月4日。
+点开看“冯如三号”飞行视频！
 
-<p>Notice that since I am keeping an array of the coordinates of only the cells who are alive, I could apply just 3 rules, die of loneliness, die of overpopulation and become alive from reproduction (exactly 3 alive neighbors) because the ones who have 2 or 3 neighbors and are already alive, can remain alive in the next iteration.</p>
 
-<p>I&nbsp;found it very interesting to implement the Game of Life like this, it was quite a refreshing challenge and I am beginning to feel my coding skills ramping up again.</p>
+
+图   国际航联观察员现场确认签字的批准证书
+
+
+图   地面站显示续航时间30小时6分钟
+
+设计特点
+
+“冯如三号”无人机采用了常规布局设计和先进超大展弦比机翼，具有很高的升阻比，翼展约10米；尾翼印有鲜亮的五星红旗；较短的流线型机身由高强度轻量化复合材料一体化制成，涂装为黑色，形状像潜水艇；后置螺旋桨，该机加满燃料后最大起飞重量为75.44千克，采用了自主起降飞行控制与导航等技术。经过近一年时间反复计算、试验、测试、试飞，一架白色“冯如三号”0号机于8月4日试飞成功。
+
+
+
+图   8月4日，白色机身的“冯如三号”0号机试飞成功。
+
+在飞行期间，不允许加油，在既定油量条件下，“冯如三号”在同等重量级别和同类型动力的无人机中，创造了续航时间的世界纪录，该机在测绘和通信中继等诸多领域具有潜在应用价值。
+
+
+
+图   飞行中的“冯如三号”无人机
+
+25～100公斤级的油动固定翼无人机，要打破续航时间世界纪录。不仅升阻比要足够高，也需要大幅减轻结构重量，增加燃油比重，从而保证长时间飞行的可靠性。在同等重量等级和动力类型的无人机中，要创造航时世界纪录，离不开具有高可靠性和稳定性的创衡控制S4系列飞控的技术支撑。
+
+飞控系统
+图  创衡S系列飞控系统。
+
+飞控是无人机的“大脑”，其重要性不言而喻。S4系列飞控由北京航空航天大学校友创办的企业北京创衡控制技术有限公司研制开发，支持一键全自动滑跑起飞、降落，按预设航线自主巡航等功能，累计安全可靠飞行时间已达30万小时以上, 具有系统稳定、可靠性高等特点。
+S4 系列飞控系统适用于常规油动固定翼、复合翼（垂直起降固定翼布局）、倾转旋翼和多旋翼4 种布局的无人机（包括常规尾翼、V 尾、飞翼），具有以下特点：
+1、支持一键全自动起降，空中盘旋、返航、定高、开伞以及多种形式的按预设航线自主巡航功能；
+2、支持外置差分 GPS（RTK/PPK/双天线定向），与内部单点定位 GPS 模块互为冗余，系统自动选择使用定位状态较好的 GPS 数据；
+3、完善的应急保护机制，可对电压低、油量低、转速低、姿态异常、高度异常、GPS定位精度低、导航
+系统故障、超出安全围栏、超出控制半径、遥控失效等进行保护，可预置100 个迫降点，紧急保护情况下，自动就近降落；
+
+4、地面测控软件支持在线地图和非规则多测区自动测绘航线规划，支持石油、电力等巡线类航线自动规划，可警示用户进行完整的飞行前检查。
+一载砥砺，厚积薄发
+
+2018年10月，冯如书院第一期科创营成立并开始“冯如三号”的设计制作，队员来自冯如书院、北京学院的33位本科一、二年级的学生，平均年龄不到20岁。在指导教师的组织与精心指导下，经过近一年时间反复计算、试验、测试、试飞，“冯如三号”无人机于8月4日试飞成功。
+
+
+
+图   夜间在电脑前观测飞行数据
+
+“冯如三号”无人机的续航时间创下国际航联世界纪录，为庆祝中华人民共和国成立70周年献礼，致敬中国航空暨冯如首飞110周年。
+
