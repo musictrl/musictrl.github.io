@@ -2,7 +2,7 @@
 layout: post
 read_time: true
 show_date: true
-title:  Single Neuron Perceptron
+title:  创衡控制亮相深圳展会，高可靠性飞控产品已获军方认可
 date:   2021-01-25 13:32:20 -0600
 description: Single neuron perceptron that classifies elements learning quite quickly.
 img: posts/20210125/Perceptron.jpg 
