@@ -2,7 +2,7 @@
 layout: post
 read_time: true
 show_date: true
-title: "So, what is a neural network?"
+title: "创衡控制荣获“中国无人机·2021年度专精特新企业”奖"
 date: 2021-04-02
 img: posts/20210402/post7-header.webp
 tags: [neural networks, machine learning, artificial intelligence]
