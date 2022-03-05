@@ -2,7 +2,7 @@
 layout: post
 read_time: true
 show_date: true
-title:  创衡控制研发团队自主研发无人直升机飞行控制与导航系统
+title:  “厚积薄发”创衡控制携多款产品亮相2017全球无人系统大会 
 date:   2021-03-18 15:14:20 -0600
 description: "Inspired by Deep Mind's astonishing feats of having their Alpha Go, Alpha Zero and Alpha Star programs learn (and be amazing at it) Go, Chess, Atari games and lately Starcraft; I set myself to the task of programming a neural network that will learn by itself how to play the ancient game of tic tac toe. How hard could it be?"
 img: posts/20210318/TicTacToeSml.jpg
@@ -12,241 +12,56 @@ github: amaynez/TicTacToe/
 toc: yes # leave empty or erase for no TOC
 ---
 <center><img style="float: left;margin-right: 1em;" src='./assets/img/posts/20210318/Game_Screen.png' width="310" height="300"></center>
+2月13日~15日，2017全球无人系统大会暨中国（珠海）国际无人系统博览会在珠海国际会展中心召开，邀请了20多位行业“大咖”现场分享，并有几十家国内外无人机相关展商齐齐亮相。北京创衡控制技术有限公司联合北京海利天梦科技有限公司，携自主研发的飞行控制/航行控制系列产品与现场嘉宾共同分享和交流。
 
-## Background
-After many years of a corporate career (17) diverging from computer science, I have now decided to learn Machine Learning and in the process return to coding (something I have always loved!).
+北京创衡控制技术有限公司现场展位/无人机网摄
 
-To fully grasp the essence of ML I decided to start by [coding a ML library myself](./ML-Library-from-scratch.html), so I can fully understand the inner workings, linear algebra and calculus involved in Stochastic Gradient Descent. And on top learn Python (I used to code in C++ 20 years ago).
+北京创衡控制技术有限公司多款产品亮相/无人机网摄
 
-I built a general purpose basic ML library that creates a Neural Network (only DENSE layers), saves and loads the weights into a file, does forward propagation and training (optimization of weights and biases) using SGD. I tested the ML library with the XOR problem to make sure it worked fine. You can read the blog post for it [here](./ML-Library-from-scratch.html).
+核心团队源自北航，专注飞控十五年
 
-For the next challenge I am interested in reinforcement learning greatly inspired by Deep Mind's astonishing feats of having their Alpha Go, Alpha Zero and Alpha Star programs learn (and be amazing at it) Go, Chess, Atari games and lately Starcraft; I set myself to the task of programming a neural network that will learn by itself how to play the ancient game of tic tac toe (or noughts and crosses).
+北京创衡控制技术有限公司定位并专注于工业级、军品级无人系统控制技术研发，核心团队源自北京航空航天大学，在飞行控制领域具有15年以上的技术积累，拥有多项无人机及飞行控制相关发明专利和工信部科技成果奖。主要产品包括常规固定翼、复合式无人机、倾转旋翼无人机、多旋翼、自转旋翼机、飞艇等飞行控制系统，基本实现无人机机型的全覆盖，全线产品均具有独立自主知识产权，可满足用户深度定制需求。
 
-How hard could it be?
+“上天入海”应用范围广
 
-Of course the first thing to do was to program the game itself, so I chose Python because I am learning it, so it gives me a good practice opportunity, and PyGame for the interface.
-Coding the game was quite straightforward, albeit for the hiccups of being my first PyGame and almost my first Python program ever.
-I created the game quite openly, in such a way that it can be played by two humans, by a human vs. an algorithmic AI, and a human vs. the neural network. And of course the neural network against a choice of 3 AI engines: random, [minimax](https://en.wikipedia.org/wiki/Minimax) or hardcoded (an exercise I wanted to do since a long time).
+除无人机飞控外，创衡控制还可提供无人水面艇、水下滑翔机、深海AUV等海洋装备主控系统解决方案。公司依托核心团队丰富的项目背景和深厚的技术底蕴，研发的产品作为主控制器，从2万米高空的大型飞艇，到中低空无人机，到水面无人船，再到水下3000米的深海AUV均获得了成功应用，相关成果已达到国际先进水平，真正是“可上九天揽月，可下五洋捉鳖”，创衡控制“上天入海”无所不能，堪称业界奇迹，也充分体现了公司在控制领域的技术储备和发展潜力。其中，某型水下滑翔机在南海海域不间断航行42天，创国内纪录，更是展示了系统卓越的可靠性、稳定性。
 
-While training, the visuals of the game can be disabled to make training much faster.
-Now, for the fun part, training the network, I followed Deep Mind's own DQN recommendations:
+发力垂直起降，拥有多项核心专利
 
-<ul><li>The network will be an approximation for the Q value function or Bellman equation, meaning that the network will be trained to predict the "value" of each move available in a given game state.</li><li>A replay experience memory was implemented. This meant that the neural network will not be trained after each move. Each move will be recorded in a special "memory" alongside with the state of the board and the reward it received for taking such an action (move).</li><li>After the memory is sizable enough, batches of random experiences sampled from the replay memory are used for every training round</li><li>A secondary neural network (identical to the main one) is used to calculate part of the Q value function (Bellman equation), in particular the future Q values. And then it is updated with the main network's weights every <em>n</em> games. This is done so that we are not chasing a moving target.</li></ul>
+公司结合行业发展热点，集中优势力量进行垂直起降相关控制技术研发，已形成S40/S50/S60/S70复合式（垂直起降固定翼）和S80倾转旋翼/机翼等无人机飞控系列产品，其中S60/S70已经上市销售一年有余，获得了良好的用户体验和市场反馈。已授权/申请多项国家发明专利，包括“一种复合式飞行器中多旋翼电动螺旋桨顺桨方式的控制系统及方法”、 “一种垂直起降复合布局无人机旋翼收放装置”、“一种倾转四旋翼飞行器”等。
 
+产品系列丰富，周边配套齐全
 
-## Designing the neural network
+公司无人机产品系列包括S40/S50/S60/S70复合式飞控、S35/S45/S55/S65/S75固定翼飞控、S80倾转旋翼/机翼飞控，适用于军品级、工业级和民用领域，能够满足用户不同层次的需求。同时可提供丰富的飞控周边配套产品，便于用户整机集成优化。
 
-<center><img src='./assets/img/posts/20210318/Neural_Network_Topology.png' width="540"></center><br>
+S35飞行控制及导航系统（超高性价比，适合小型电动固定翼）
 
-The Neural Network chosen takes 9 inputs (the current state of the game) and outputs 9 Q values for each of the 9 squares in the board of the game (possible actions). Obviously some squares are illegal moves, hence while training there was a negative reward given to illegal moves hoping that the model would learn not to play illegal moves in a given position.
+S40/S45飞行控制及导航系统（高性价比，支持扩展RTK&PPK）
+S50/S55飞行控制及导航系统（高精确度，支持扩展RTK&PPK）
 
-I started out with two hidden layers of 36 neurons each, all fully connected and activated via ReLu. The output layer was initially activated using sigmoid to ensure that we get a nice value between 0 and 1 that represents the QValue of a given state action pair.
+S50三冗余GPS/MINS组合导航系统
+S60/S65飞行控制及导航系统（高可靠性，适合行业应用）
 
-## The many models...
-### Model 1 - the first try
+S70/S75飞行控制及导航系统（军工品质，适合恶劣环境）
 
-At first the model was trained by playing vs. a "perfect" AI, meaning a [hard coded algorithm](https://github.com/amaynez/TicTacToe/blob/b429e5637fe5f61e997f04c01422ad0342565640/entities/Game.py#L43) that never looses and that will win if it is given the chance. After several thousand training rounds, I noticed that the Neural Network was not learning much; so I switched to training vs. a completely random player, so that it will also learn how to win. After training vs. the random player, the Neural Network seems to have made progress and is steadily diminishing the loss function over time.
+S80飞行控制及导航系统（适合于倾转旋翼）
 
-<center><img src='./assets/img/posts/20210318/Loss_function_across_all_episodes.png' width="540"></center><br>
+GD20差分定位系统（适合于实时差分&后差分作业）
 
-However, the model was still generating many illegal moves, so I decided to modify the reinforcement learning algorithm to punish more the illegal moves. The change consisted in populating with zeros all the corresponding illegal moves for a given position at the target values to train the network. This seemed to work very well for diminishing the illegal moves:
+NAV40/NAV50组合导航系统（适合于无人机、无人车、无人船等）
 
-<center><img src='./assets/img/posts/20210318/Loss_function_and_Illegal_moves.png' width="540"></center><br>
+S40/S50/S60/S70适用于各种常规布局固定翼+四旋翼构型的飞行器，集成飞行控制计算机和三冗余微组合导航系统（GPS/INS），可以实现一键自动起飞、降落、悬停、盘旋、返航、定高、开伞以及多种形式的按预定航线自主巡航功能，支持扩展RTK、PPK和双天线定向功能，提供全面的飞行状态监视报警功能和完善的应急保护机制，确保系统安全运行。
 
-Nevertheless, the model was still performing quite poorly winning only around 50% of games vs. a completely random player (I expected it to win above 90% of the time). This was after only training 100,000 games, so I decided to keep training and see the results:
+S35/S45/S55/S65/S75适用于各种常规布局固定翼（包括V尾、飞翼），支持全自动弹射起飞、手抛起飞、伞降。
 
-<center><img src='./assets/img/posts/20210318/Loss_function_and_Illegal_moves2.png' width="540">
-<small>Wins: 65.46% Losses: 30.32% Ties: 4.23%</small></center>
+S80适用于倾转旋翼或倾转机翼方式的垂直起降无人机。
 
-Note that when training restarts, the loss and illegal moves are still high in the beginning of the training round, and this is caused by the epsilon greedy strategy that prefers exploration (a completely random move) over exploitation, this preference diminishes over time.
+为了便于用户整机集成优化，创衡控制还提供飞控周边配套产品模块，包括GD20差分定位系统（RTK+PPK+DataLink）、NAV40/NAV50组合导航系统、机载集成电源模块、遥控遥测数传电台、载荷控制模块等，其中载荷控制模块支持常见型号光电吊舱、开放式摄像云台、航摄稳定云台等。上述配套产品均可直接接入创衡系列飞控，为整机用户提供一站式解决方案。
 
-After another round of 100,000 games, I can see that the loss function actually started to diminish, and the win rate ended up at 65%, so with little hope I decided to carry on and do another round of 100,000 games (about 2 hours in an i7 MacBook Pro):
+联合生产制造厂家，优化系统级解决方案
 
-<center><img src='./assets/img/posts/20210318/Loss_function_and_Illegal_moves3.png' width="540">
-<small>Wins: 46.40% Losses: 41.33% Ties: 12.27%</small></center>
+创衡控制定位并致力于控制系统研发，已与全国多家无人机生产制造厂家达成战略合作伙伴关系，在各自擅长的领域发挥优势同时，联合攻关、融合创新，共同为用户提供完整的、优化的系统级解决方案。联合打造的几款无人机已经在低空测绘、边境巡逻、管线巡检、警用安防等领域推广应用并得到用户好评。
 
-As you can see in the chart, the calculated loss not even plateaued, but it seemed to increase a bit over time, which tells me the model is not learning anymore. This was confirmed by the win rate decreasing with respect of the previous round to a meek 46.4% that looks no better than a random player.
+开拓创新、精益求精、用户至上
 
-### Model 2 - Linear activation for the output
-
-After not getting the results I wanted, I decided to change the output activation function to linear, since the output is supposed to be a Q value, and not a probability of an action.
-
-<center><img src='./assets/img/posts/20210318/Loss_function_and_Illegal_moves4.png' width="540"><br>
-<small>Wins: 47.60% Losses: 39% Ties: 13.4%</small></center><br>
-
-Initially I tested with only 1000 games to see if the new activation function was working, the loss function appears to be decreasing, however it reached a plateau around a value of 1, hence still not learning as expected. I came across a <a href="https://github.com/bckenstler/CLR">technique by Brad Kenstler, Carl Thome and Jeremy Jordan</a> called Cyclical Learning Rate, which appears to solve some cases of stagnating loss functions in this type of networks. So I gave it a go using their Triangle 1 model.
-
-With the cycling learning rate in place, still no luck after a quick 1,000 games training round; so I decided to implement on top a decaying learning rate as per the following formula:
-
-<center><img src='./assets/img/posts/20210318/lr_formula.jpeg' width="280"></center>
-
-The resulting learning rate combining the cycles and decay per epoch is:
-<center><img src='./assets/img/posts/20210318/LR_cycle_decay.png' width="480">
-<small>Learning Rate = 0.1, Decay = 0.0001, Cycle = 2048 epochs,<br>
-        max Learning Rate factor = 10x</small></center>
-
-```python
-true_epoch = epoch - c.BATCH_SIZE
-learning_rate = self.learning_rate*(1/(1+c.DECAY_RATE*true_epoch))
-if c.CLR_ON: learning_rate = self.cyclic_learning_rate(learning_rate,true_epoch)
-```
-```python
-@staticmethod
-def cyclic_learning_rate(learning_rate, epoch):
-    max_lr = learning_rate*c.MAX_LR_FACTOR
-    cycle = np.floor(1+(epoch/(2*c.LR_STEP_SIZE)))
-    x = np.abs((epoch/c.LR_STEP_SIZE)-(2*cycle)+1)
-    return learning_rate+(max_lr-learning_rate)*np.maximum(0,(1-x))
-```
-```python
-c.DECAY_RATE = learning rate decay rate
-c.MAX_LR_FACTOR = multiplier that determines the max learning rate
-c.LR_STEP_SIZE = the number of epochs each cycle lasts
-```
-<br>With these many changes, I decided to restart with a fresh set of random weights and biases and try training more (much more) games.
-
-<center><img src='./assets/img/posts/20210318/Loss_function_and_Illegal_moves6.png' width="540">
-<small>1,000,000 episodes, 7.5 million epochs with batches of 64 moves each<br>
-Wins: 52.66% Losses: 36.02% Ties: 11.32%</small></center>
-
-After **24 hours!**, my computer was able to run 1,000,000 episodes (games played), which represented 7.5 million training epochs of batches of 64 plays (480 million plays learned), the learning rate did decreased (a bit), but is clearly still in a plateau; interestingly, the lower boundary of the loss function plot seems to continue to decrease as the upper bound and the moving average remains constant. This led me to believe that I might have hit a local minimum.
-<a name='Model3'></a>
-### Model 3 - new network topology
-
-After all the failures I figured I had to rethink the topology of the network and play around with combinations of different networks and learning rates.
-
-<center><img src='./assets/img/posts/20210318/Loss_function_and_Illegal_moves7.png' width="540">
-<small>100,000 episodes, 635,000 epochs with batches of 64 moves each<br>
-<b>Wins: 76.83%</b> Losses: 17.35% Ties: 5.82%</small></center>
-
-I increased to 200 neurons each hidden layer. In spite of this great improvement the loss function was still in a plateau at around 0.1 (Mean Squared Error). Which, although it is greatly reduced from what we had, still was giving out only 77% win rate vs. a random player, the network was playing tic tac toe as a toddler!
-
-<center><img src='./assets/img/posts/20210318/Game_Screen2.png' width="240" height="240">
-<small>*I can still beat the network most of the time! (I am playing with the red X)*</small></center>
-
-<center><img src='./assets/img/posts/20210318/Loss_function_and_Illegal_moves10.png' width="540">
-<small>100,000 more episodes, 620,000 epochs with batches of 64 moves each<br>
-<b>Wins: 82.25%</b> Losses: 13.28% Ties: 4.46%</small></center>
-
-**Finally we crossed the 80% mark!** This is quite an achievement, it seems that the change in network topology is working, although it also looks like the loss function is stagnating at around 0.15.
-
-After more training rounds and some experimenting with the learning rate and other parameters, I couldn't improve past the 82.25% win rate.
-
-These have been the results so far:
-
-<center><img src='./assets/img/posts/20210318/Models1to3.png' width="540"></center>
-<br>
-
-It is quite interesting to learn how the many parameters (hyper-parameters as most authors call them) of a neural network model affect its training performance, I have played with:
-- the learning rate
-- the network topology and activation functions
-- the cycling and decaying learning rate parameters
-- the batch size
-- the target update cycle (when the target network is updated with the weights from the policy network)
-- the rewards policy
-- the epsilon greedy strategy
-- whether to train vs. a random player or an "intelligent" AI.
-
-And so far the most effective change has been the network topology, but being so close but not quite there yet to my goal of 90% win rate vs. a random player, I will still try to optimize further.
-
-<tweet>Network topology seems to have the biggest impact on a neural network's learning ability.</tweet>
-
-<a name='Model4'></a>
-### Model 4 - implementing momentum
-
-I [reached out to the reddit community](https://www.reddit.com/r/MachineLearning/comments/lzvrwp/p_help_with_a_reinforcement_learning_project/) and a kind soul pointed out that maybe what I need is to apply momentum to the optimization algorithm. So I did some research and ended up deciding to implement various optimization methods to experiment with:
-
-- Stochastic Gradient Descent with Momentum
-- RMSProp: Root Mean Square Plain Momentum
-- NAG: Nezterov's Accelerated Momentum
-- Adam: Adaptive Moment Estimation
-- and keep my old vanilla Gradient Descent (vGD) ☺
-
-<a name='optimization'></a>[Click here for a detailed explanation and code of all the implemented optimization algorithms.](https://the-mvm.github.io/neural-network-optimization-methods/)
-
-So far, I have not been able to get better results with Model 4, I have tried all the momentum optimization algorithms with little to no success.
-<a name='Model5'></a>
-### Model 5 - implementing one-hot encoding and changing topology (again)
-I came across an [interesting project in Github](https://github.com/AxiomaticUncertainty/Deep-Q-Learning-for-Tic-Tac-Toe/blob/master/tic_tac_toe.py) that deals exactly with Deep Q Learning, and I noticed that he used "one-hot" encoding for the input as opposed to directly entering the values of the player into the 9 input slots. So I decided to give it a try and at the same time change my topology to match his:
-
-<center><img src='./assets/img/posts/20210318/Neural_Network_Topology3.png' width="540"></center>
-
-So, 'one hot' encoding is basically changing the input of a single square in the tic tac toe board to three numbers, so that each state is represented with different inputs, thus the network can clearly differentiate the three of them. As the original author puts it, the way I was encoding, having 0 for empty, 1 for X and 2 for O, the network couldn't easily tell that, for instance, O and X both meant occupied states, because one is two times as far from 0 as the other. With the new encoding, the empty state will be 3 inputs: (1,0,0), the X will be (0,1,0) and the O (0,0,1) as in the diagram.
-
-Still, no luck even with Model 5, so I am starting to think that there could be a bug in my code.
-
-To test this hypothesis, I decided to implement the same model using Tensorflow / Keras.
-
-<a name='Model6'></a>
-### Model 6 - Tensorflow / Keras
-<center><img src='https://www.kubeflow.org/docs/images/logos/TensorFlow.png' width="100" height="100"></center>
-
-```python
-self.PolicyNetwork = Sequential()
-for layer in hidden_layers:
-    self.PolicyNetwork.add(Dense(
-                           units=layer,
-                           activation='relu',
-                           input_dim=inputs,
-                           kernel_initializer='random_uniform',
-                           bias_initializer='zeros'))
-self.PolicyNetwork.add(Dense(
-                        outputs,
-                        kernel_initializer='random_uniform',
-                        bias_initializer='zeros'))
-opt = Adam(learning_rate=c.LEARNING_RATE,
-           beta_1=c.GAMMA_OPT,
-           beta_2=c.BETA,
-           epsilon=c.EPSILON,
-           amsgrad=False)
-self.PolicyNetwork.compile(optimizer='adam',
-                           loss='mean_squared_error',
-                           metrics=['accuracy'])
-```
-As you can see I am reusing all of my old code, and just replacing my Neural Net library with Tensorflow/Keras, keeping even my hyper-parameter constants.
-
-The training function changed to:
-```python
-reduce_lr_on_plateau = ReduceLROnPlateau(monitor='loss',
-                                         factor=0.1,
-                                         patience=25)
-history = self.PolicyNetwork.fit(np.asarray(states_to_train),
-                                 np.asarray(targets_to_train),
-                                 epochs=c.EPOCHS,
-                                 batch_size=c.BATCH_SIZE,
-                                 verbose=1,
-                                 callbacks=[reduce_lr_on_plateau],
-                                 shuffle=True)
-```
-
-With Tensorflow implemented, the first thing I noticed, was that I had an error in the calculation of the loss, although this only affected reporting and didn't change a thing on the training of the network, so the results kept being the same, **the loss function was still stagnating! My code was not the issue.**
-<a name='Model7'></a>
-### Model 7 - changing the training schedule
-Next I tried to change the way the network was training as per [u/elBarto015](https://www.reddit.com/user/elBarto015) [advised me on reddit](https://www.reddit.com/r/reinforcementlearning/comments/lzzjar/i_created_an_ai_for_super_hexagon_based_on/gqc8ka6?utm_source=share&utm_medium=web2x&context=3).
-
-The way I was training initially was:
-- Games begin being simulated and the outcome recorded in the replay memory
-- Once a sufficient ammount of experiences are recorded (at least equal to the batch size) the Network will train with a random sample of experiences from the replay memory. The ammount of experiences to sample is the batch size.
-- The games continue to be played between the random player and the network.
-- Every move from either player generates a new training round, again with a random sample from the replay memory.
-- This continues until the number of games set up conclude.
-
-<center><img src='./assets/img/posts/20210318/ReplayMemoryBefore.png' width="540"></center>
-
-The first change was to train only after every game concludes with the same ammount of data (a batch). This was still not giving any good results.
-
-The second change was more drastic, it introduced the concept of epochs for every training round, it basically sampled the replay memory for epochs * batch size experiences, for instance if epochs selected were 10, and batch size was 81, then 810 experiences were sampled out of the replay memory. With this sample the network was then trained for 10 epochs randomly using the batch size.
-
-This meant that I was training now effectively 10 (or the number of epochs selected) times more per game, but in batches of the same size and randomly shuffling the experiences each epoch.
-
-<center><img src='./assets/img/posts/20210318/ReplayMemoryAfter.png' width="540"></center><br>
-
-After still playing around with some hyperparameters I managed to get similar performance as I got before, reaching 83.15% win rate vs. the random player, so I decided to keep training in rounds of 2,000 games each to evaluate performance. With almost every round I could see improvement:
-
-<center><img src='./assets/img/posts/20210318/Model7HyperParameters.png' width="540"><br>
-<img src='./assets/img/posts/20210318/Model7.png' width="480">
-</center><br>
-
-As of today, my best result so far is 87.5%, I will leave it rest for a while and keep investigating to find a reason for not being able to reach at least 90%. I read about [self play](https://medium.com/applied-data-science/how-to-train-ai-agents-to-play-multiplayer-games-using-self-play-deep-reinforcement-learning-247d0b440717), and it looks like a viable option to test and a fun coding challenge. However, before embarking in yet another big change I want to ensure I have been thorough with the model and have tested every option correctly.
-
-I feel the end is near... should I continue to update this post as new events unfold or shall I make it a multi post thread?
+在未来的发展中，北京创衡控制技术有限公司将继续秉承“开拓创新、精益求精、用户至上”的经营理念，在无人系统控制领域勇攀高峰，用更好的产品和服务回报市场、回报用户
