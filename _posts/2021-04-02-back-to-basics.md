@@ -14,7 +14,3 @@ description: "ELI5: what is a neural network."
 
         北京创衡控制技术有限公司凭借在500kg级无人自转旋翼机、无人直升机和舰载起降无人机的飞行控制与导航系统产品以及无人机集群控制技术，荣获第七届无人机百人会“中国无人机·2021年度专精特新企业奖”！  
 
-Of course Amazon's Alexa neural networks have undergone quite a lot of training to get to the level where they are, the beauty is that once trained, to perform their magic they just need a few mathematical operations.
-
-As said before, I will continue to write about the basics of neural networks, the next article in the series will dive a bit deeper into the math behind a basic neural network. 
-
