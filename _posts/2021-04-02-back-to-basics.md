@@ -4,7 +4,7 @@ read_time: true
 show_date: true
 title: "创衡控制荣获“中国无人机·2021年度专精特新企业”奖"
 date: 2021-04-02
-img: posts/20210402/post7-header.webp
+img: posts/20210402/1642040887.jpg
 tags: [neural networks, machine learning, artificial intelligence]
 category: theory
 author: Armando Maynez
