@@ -11,95 +11,48 @@ author: Armando Maynez
 github:  amaynez/Perceptron/
 mathjax: yes
 ---
-As an entry point to learning python and getting into Machine Learning, I decided to code from scratch the Hello World! of the field, a single neuron perceptron.
+ 2017年6月14日~16日，尖兵之翼-第八届中国无人机大会在北京中关村国家自主创新示范展示中心召开，北京创衡控制技术有限公司联合东莞光点科技有限公司、北京海利天梦科技有限公司，携自主研发的飞行控制/航行控制系列产品亮相本次大会，“上天入海”无所不能，成为展会一大亮点。 
 
-## What is a perceptron?
+ 2.png
 
-A perceptron is the basic building block of a neural network, it can be compared to a neuron, And its conception is what detonated the vast field of Artificial Intelligence nowadays.
+1. 核心团队源自北航，专注飞控十五年
 
-Back in the late 1950's, a young [Frank Rosenblatt](https://en.wikipedia.org/wiki/Frank_Rosenblatt) devised a very simple algorithm as a foundation to construct a machine that could learn to perform different tasks.
+北京创衡控制技术有限公司定位并专注于工业级、军品级无人系统控制技术研发，核心团队源自北京航空航天大学，在飞行控制领域具有15年以上的技术积累，拥有多项无人机及飞行控制相关发明专利和工信部科技成果奖。主要产品包括常规固定翼、复合式无人机、倾转旋翼无人机、多旋翼、自转旋翼机、飞艇等飞行控制系统，基本实现无人机机型的全覆盖，全线产品均具有独立自主知识产权，可满足用户深度定制需求。
 
-In its essence, a perceptron is nothing more than a collection of values and rules for passing information through them, but in its simplicity lies its power.
+2. 应用范围广，“上天入海”无所不能
 
-<center><img src='./assets/img/posts/20210125/Perceptron.png'></center>
+除无人机飞控外，创衡控制还可提供无人水面艇、水下滑翔机、深海AUV等海洋装备主控系统解决方案。公司依托核心团队丰富的项目背景和深厚的技术底蕴，研发的产品作为主控制器，从2万米高空的大型飞艇，到中低空无人机，到水面无人船，再到水下3000米的深海AUV均获得了成功应用，相关成果已达到国际先进水平，真正是“可上九天揽月，可下五洋捉鳖”，创衡控制“上天入海”无所不能，堪称业界奇迹，也充分体现了公司在控制领域的技术储备和发展潜力。其中，某型水下滑翔机在南海海域不间断航行42天，创国内纪录，更是展示了系统卓越的可靠性、稳定性。 
 
-Imagine you have a 'neuron' and to 'activate' it, you pass through several input signals, each signal connects to the neuron through a synapse, once the signal is aggregated in the perceptron, it is then passed on to one or as many outputs as defined. A perceptron is but a neuron and its collection of synapses to get a signal into it and to modify a signal to pass on.
+ 3.png
 
-In more mathematical terms, a perceptron is an array of values (let's call them weights), and the rules to apply such values to an input signal.
+3. 发力垂直起降，拥有多项核心专利
 
-For instance a perceptron could get 3 different inputs as in the image, lets pretend that the inputs it receives as signal are: $x_1 = 1, \; x_2 = 2\; and \; x_3 = 3$, if it's weights are $w_1 = 0.5,\; w_2 = 1\; and \; w_3 = -1$ respectively, then what the perceptron will do when the signal is received is to multiply each input value by its corresponding weight, then add them up.
+公司结合行业发展热点，集中优势力量进行垂直起降相关控制技术研发，已形成S40/S60/S70复合式（垂直起降固定翼）和S80倾转旋翼/机翼等无人机飞控系列产品，其中S60/S70已经上市销售一年有余，获得了良好的用户体验和市场反馈。已授权/申请多项国家发明专利，包括“一种复合式飞行器中多旋翼电动螺旋桨顺桨方式的控制系统及方法”、 “一种垂直起降复合布局无人机旋翼收放装置”、“一种倾转四旋翼飞行器”等。
 
-<p style="text-align:center">\(<br>
-\begin{align}
-\begin{split}
-\left(x_1 * w_1\right) + \left(x_2 * w_2\right) + \left(x_3 * w_3\right)
-\end{split}
-\end{align}
-\)</p>
+4. 产品系列丰富，周边配套齐全
 
-<p style="text-align:center">\(<br>
-\begin{align}<br>
-\begin{split}<br>
-\left(0.5 * 1\right) + \left(1 * 2\right) + \left(-1 * 3\right) = 0.5 + 2 - 3 = -0.5
-\end{split}<br>
-\end{align}<br>
-\)</p>
+公司无人机产品系列包括S40/S60/S70复合式飞控、S45/S65/S75固定翼飞控、S80倾转旋翼/机翼飞控，适用于军品级、工业级和民用领域，能够满足用户不同层次的需求。同时可提供丰富的飞控周边配套产品，便于用户整机集成优化。 
 
-Typically when this value is obtained, we need to apply an "activation" function to smooth the output, but let's say that our activation function is linear, meaning that we keep the value as it is, then that's it, that is the output of the perceptron, -0.5.
+4.png
 
-In a practical application, the output means something, perhaps we want our perceptron to classify a set of data and if the perceptron outputs a negative number, then we know the data is of type A, and if it is a positive number then it is of type B.
+S40/S45飞行控制及导航系统（超高性价比，适合普通民用领域） 
 
-Once we understand this, the magic starts to happen through a process called backpropagation, where we "educate" our tiny one neuron brain to have it learn how to do its job.
+5.png
 
-<tweet>The magic starts to happen through a process called backpropagation, where we "educate" our tiny one neuron brain to have it learn how to do its job.</tweet>
+S60/S65飞行控制及导航系统（高可靠性，适合行业应用） 
 
-For this we need a set of data that it is already classified, we call this a training set. This data has inputs and their corresponding correct output. So we can tell the little brain when it misses in its prediction, and by doing so, we also adjust the weights a bit in the direction where we know the perceptron committed the mistake hoping that after many iterations like this the weights will be so that most of the predictions will be correct.
+6.png
 
-After the model trains successfully we can have it classify data it has never seen before, and we have a fairly high confidence that it will do so correctly.
+S70/S75飞行控制及导航系统（军工品质，适合恶劣环境）
 
-The math behind this magical property of the perceptron is called gradient descent, and is just a bit of differential calculus that helps us convert the error the brain is having into tiny nudges of value of the weights towards their optimum. [This video series by 3 blue 1 brown explains it wonderfuly.](https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
+S40/S60/S70适用于各种常规布局固定翼+四旋翼构型的飞行器，集成飞行控制计算机和微组合导航系统（GPS/INS），可以实现一键自动起飞、降落、悬停、盘旋、返航、定高、开伞以及多种形式的按预定航线自主巡航功能，提供全面的飞行状态监视报警功能和完善的应急保护机制，确保系统安全运行。
 
-My program creates a single neuron neural network tuned to guess if a point is above or below a randomly generated line and generates a visualization based on graphs to see how the neural network is learning through time.
+S45/S65/S75适用于各种常规布局固定翼（包括V尾、飞翼），支持全自动弹射起飞、手抛起飞、伞降。
 
-The neuron has 3 inputs and weights to calculate its output:
-    
-    input 1 is the X coordinate of the point,
-    Input 2 is the y coordinate of the point,
-    Input 3 is the bias and it is always 1
+S80适用于倾转旋翼或倾转机翼方式的垂直起降无人机。
 
-    Input 3 or the bias is required for lines that do not cross the origin (0,0)
+为了便于用户整机集成优化，创衡控制还提供飞控周边配套产品模块，包括机载集成电源模块、遥控遥测数传电台、载荷控制模块、油量传感器等，其中载荷控制模块支持常见型号光电吊舱、开放式摄像云台、航摄稳定云台等。上述配套产品均可直接接入创衡系列飞控，为整机用户提供一站式解决方案。 
 
-The Perceptron starts with weights all set to zero and learns by using 1,000 random points per each iteration.
+5. 联合生产制造厂家，优化系统级解决方案
 
-The output of the perceptron is calculated with the following activation function:
-    if x * weight_x + y weight_y + weight_bias is positive then 1 else 0
-
-The error for each point is calculated as the expected outcome of the perceptron minus the real outcome therefore there are only 3 possible error values:
-
-|Expected  |  Calculated | Error|
-|:----:|:----:|:----:|
-|1|-1|1|
-|1|1|0|
-|-1|-1|0|
-|-1|1|-1|
-
-With every point that is learned if the error is not 0 the weights are adjusted according to:
-
-    New_weight = Old_weight + error * input * learning_rate
-    for example: New_weight_x = Old_weight_x + error * x * learning rate
-
-A very useful parameter in all of neural networks is teh learning rate, which is basically a measure on how tiny our nudge to the weights is going to be. 
-
-In this particular case, I coded the learning_rate to decrease with every iteration as follows:
-
-    learning_rate = 0.01 / (iteration + 1)
-
-this is important to ensure that once the weights are nearing the optimal values the adjustment in each iteration is subsequently more subtle.
-
-<center><img src='./assets/img/posts/20210125/Learning_1000_points_per_iteration.jpg'></center>
-
-In the end, the perceptron always converges into a solution and finds with great precision the line we are looking for.
-
-Perceptrons are quite a revelation in that they can resolve equations by learning, however they are very limited. By their nature they can only resolve linear equations, so their problem space is quite narrow. 
-
-Nowadays the neural networks consist of combinations of many perceptrons, in many layers, and other types of "neurons", like convolution, recurrent, etc. increasing significantly the types of problems they solve.
+创衡控制定位并致力于控制系统研发，已与全国多家无人机生产制造厂家达成战略合作 伙伴关系，在各自擅长的领域发挥优势同时，联合攻关、融合创新，共同为用户提供完整的、优化的系统级解决方案。联合打造的几款无人机已经在低空测绘、边境巡逻、管线巡检、警用安防等领域推广应用并得到用户好评。 
